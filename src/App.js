@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Button from "@mui/material/Button";
-import { Input, FormControl, FormHelperText } from "@mui/material";
+import { Input, FormControl, FormHelperText, ListItemText, List } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Todo from "./Todo";
+import database from "./firebase"
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
-  useEffect(() => {
-    //this fires everytime the app.js reloads
-  })
+  // useEffect(() => {
+  //   //this fires everytime the app.js reloads
+  //   database.collection('todos').onSnapshot(snapshot => {
+  //     setTodos(snapshot.docs.map(doc))
+  //   })
+  // })
 
   const addTodo = (event) => {
     event.preventDefault();
@@ -41,13 +45,27 @@ function App() {
           Add Todo
         </Button>
       </form>
-      <ul>
-        {todos.map((todo) => (
-          <Todo text={todo}/>
-        ))}
-      </ul>
+      <List>
+    <ListItemText
+      primary=        {todos.map((todo) => (
+        <Todo text={todo}/>
+      ))}
+      secondary="Deadline! ⏰ "
+    />
+</List>
+
     </div>
   );
 }
 
 export default App;
+
+
+{/* <List>
+    <ListItemText
+      primary=        {todos.map((todo) => (
+        <Todo text={todo}/>
+      ))}
+      secondary="Deadline! ⏰ "
+    />
+</List> */}
