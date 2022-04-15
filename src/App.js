@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Button from "@mui/material/Button";
 import { Input, FormControl, FormHelperText } from "@mui/material";
@@ -6,8 +6,12 @@ import { InputLabel } from "@mui/material";
 import Todo from "./Todo";
 
 function App() {
-  const [todos, setTodos] = useState(["testing 1", "testing 2"]);
+  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    //this fires everytime the app.js reloads
+  })
 
   const addTodo = (event) => {
     event.preventDefault();
