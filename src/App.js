@@ -3,6 +3,7 @@ import "./App.css";
 import Button from "@mui/material/Button";
 import { Input, FormControl, FormHelperText } from "@mui/material";
 import { InputLabel } from "@mui/material";
+import Todo from "./Todo";
 
 function App() {
   const [todos, setTodos] = useState(["testing 1", "testing 2"]);
@@ -23,7 +24,7 @@ function App() {
           <InputLabel> ✅ Write a TODO</InputLabel>
           <Input value={input} onChange={(e) => setInput(e.target.value)} />
           <FormHelperText>
-            Click "add todo" button !
+          🚀 Click "ADD TODO" button ! 🚀
           </FormHelperText>
         </FormControl>
         <Button
@@ -38,7 +39,7 @@ function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <Todo text={todo}/>
         ))}
       </ul>
     </div>
